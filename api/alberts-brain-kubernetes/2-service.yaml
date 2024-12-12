@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+
+metadata:
+  name: amixtra-humanize-service
+  namespace: amixtra
+spec:
+  selector:
+    amixtra: brain
+  ports:
+  - port: 80
+    targetPort: 3000
+    protocol: TCP
+  type: NodePort

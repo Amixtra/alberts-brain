@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: alberts-humanizeai-deployment
+  namespace: amixtra
+spec:
+  selector:
+    matchLabels:
+      amixtra: brain
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        amixtra: brain
+    spec:
+      containers:
+      - name: amixtra-ctn
+        image: amixtra/humanizeai
+        ports:
+        - containerPort: 3000
+        resources:
+          limits:
+            cpu: 200m
+          requests:
+            cpu: 100m
+      imagePullSecrets:
+        - name: amixtra-secret

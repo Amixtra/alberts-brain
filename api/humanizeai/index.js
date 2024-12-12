@@ -25,7 +25,7 @@ let browser;
   }
 })();
 
-app.post('/albert', async (req, res) => {
+app.post('/api/albert', async (req, res) => {
   const { inputText } = req.body;
 
   if (!inputText || typeof inputText !== 'string') {
